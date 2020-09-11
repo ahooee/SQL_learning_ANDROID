@@ -7,4 +7,12 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="cursive">
+        <item name="android:fontFamily">cursive</item>
+        <item name="android:textSize">35sp</item>
+        <item name="android:padding">2dip</item>
+        <item name="android:layout_marginTop">2sp</item>
+
+
+    </style>
 </resources>

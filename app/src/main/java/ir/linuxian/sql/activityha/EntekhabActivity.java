@@ -50,7 +50,8 @@ public class EntekhabActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 //TO START AMOOZESH INDEX ACTIVITY
-                //startActivity(new Intent(EntekhabActivity.this, AmoozeshEntekhaabActivity.class));
+                startActivity(new Intent(EntekhabActivity.this, AmoozeshFehrestActivity.class));
+
 
             }
         });

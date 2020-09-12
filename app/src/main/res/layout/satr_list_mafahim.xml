@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/satr_list_amoozesh_asli"
+    android:padding="2sp"
+    android:layoutDirection="rtl"
+    android:layout_marginStart="3sp"
+    android:layout_marginEnd="3sp"
+    android:layout_gravity="center"
+    android:gravity="center"
+    >
+
+   <!--
+
+     <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:id="@+id/lin_satr_amoozesh_shomare"
+
+        >
+
+        <TextView
+
+            android:id="@+id/txt_satr_amoozesh_shomare"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            />
+
+
+
+    </LinearLayout>
+
+
+-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/lin_satr_amoozesh_onvan"
+
+        android:background="@drawable/sabz_3d_amood"
+        android:layout_gravity="center"
+        android:gravity="center"
+        >
+
+
+        <TextView
+
+            android:textColor="#FFFFFF"
+
+            android:textSize="26sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txt_satr_amoozesh_onvan"
+            android:layout_margin="8sp"
+            android:layout_gravity="center"
+            android:gravity="center"
+
+
+            />
+
+
+
+
+
+    </LinearLayout>
+</LinearLayout>

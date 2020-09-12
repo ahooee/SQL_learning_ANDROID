@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="amoozesh_list">
+
+        <!--1-->
+        <item>مفاهیم</item>
+        <!--2-->
+        <item >مقدمه</item>
+        <!--3-->
+        <item >برخی مفاهیم</item>
+
+        <!--4-->
+        <item >نصب</item>
+        <!--5-->
+        <item >دستورات</item>
+        <!--6-->
+        <item >SELECT</item>
+        <!--7-->
+        <item >تاریخجه</item>
+        <!--8-->
+        <item >مقدمه</item>
+        <!--9-->
+        <item >تاریخجه</item>
+        <!--10-->
+        <item >مقدمه</item>
+        <!--10-->
+        <item >تاریخجه</item>
+        <!--11-->
+        <item >مقدمه</item>
+        <!--12-->
+        <item >تاریخجه</item>
+        <!--13-->
+        <item >مقدمه</item>
+        <!--14-->
+        <item >تاریخجه</item>
+        <!--15-->
+        <item >مقدمه</item>
+        <!--16-->
+        <item >تاریخجه</item>
+        <!--17-->
+        <item >مقدمه</item>
+        <!--18-->
+        <item >تاریخجه</item>
+        <!--19-->
+        <item >مقدمه</item>
+        <!--20-->
+        <item >تاریخجه</item>
+        <!--21-->
+        <item >مقدمه</item>
+        <!--22-->
+        <item >تاریخجه</item>
+        <!--23-->
+        <item >مقدمه</item>
+        <!--24-->
+        <item >تاریخجه</item>
+        <!--25-->
+        <item >مقدمه</item>
+        <!--26-->
+        <item >تاریخجه</item>
+
+    </string-array>
+
+
+
+</resources>

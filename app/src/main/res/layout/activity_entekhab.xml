@@ -4,6 +4,201 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activityha.EntekhabActivity">
+    tools:context=".activityha.EntekhabActivity"
+    android:background="#000000"
+    android:orientation="vertical"
+    android:layoutDirection="rtl"
+    >
+
+    <LinearLayout
+        android:id="@+id/linear_amoozesh"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:background="@drawable/mostatil_siah"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_margin="2sp"
+
+        >
+
+        <TextView
+            android:id="@+id/text_amoozesh"
+            android:clickable="false"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="آموزش"
+            android:textSize="30sp"
+            android:textDirection="rtl"
+            android:layout_gravity="center"
+
+            android:textColor="#FFFFFF"
+
+
+               />
+
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        >
+
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:background="@drawable/mostatil_zereshki"
+            android:id="@+id/linear_azmoon"
+            android:orientation="vertical"
+            android:gravity="center"
+
+            android:layout_margin="2sp"
+
+            >
+
+
+            <TextView
+                android:id="@+id/text_azmoon"
+                android:clickable="false"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="آزمون"
+                android:textSize="30sp"
+                android:textDirection="rtl"
+                android:layout_gravity="center"
+
+                android:textColor="#FFFFFF"
+
+
+
+
+                />
+
+
+
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:id="@+id/linear_tanzimat"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/mostatil_sabz"
+            android:orientation="vertical"
+            android:gravity="center"
+
+            android:layout_margin="2sp"
+
+            >
+
+            <TextView
+                android:text="تنظیمات"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/text_tanzimat"
+                android:clickable="false"
+                android:textSize="30sp"
+                android:textDirection="rtl"
+                android:layout_gravity="center"
+                android:textColor="#FFFFFF"
+                />
+
+
+
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+
+        >
+
+
+        <LinearLayout
+            android:id="@+id/linear_linuxian"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/mostatil_soorati"
+            android:gravity="center"
+            android:orientation="vertical"
+
+            android:layout_margin="2sp"
+
+            >
+
+            <TextView
+                android:id="@+id/text_linuxian"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:clickable="false"
+                android:fontFamily="cursive"
+                android:text="linuxian"
+                android:textColor="#FFFFFF"
+                android:textDirection="rtl"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+
+
+
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:id="@+id/linear_source"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:background="@drawable/mostatil_abi"
+            android:gravity="center"
+            android:orientation="vertical"
+
+            android:layout_margin="2sp"
+
+            >
+
+            <TextView
+                android:clickable="false"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/text_source"
+                android:textColor="#FFFFFF"
+                android:textSize="30sp"
+                android:textDirection="rtl"
+                android:text="دریافت کد منبع"
+                android:layout_gravity="center"
+                />
+
+
+
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
 
 </LinearLayout>

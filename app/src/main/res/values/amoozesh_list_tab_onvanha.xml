@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <array name="amoozesh_onvanha">
+
+        <item>@array/moghaddameh_onvan</item>
+        <item>@array/jadval_onvan</item>
+
+        <item>@array/nasb_onvan</item>
+        <item>@array/nasb_onvan</item>
+        <item>@array/moghaddameh_onvan</item>
+
+
+
+
+    </array>
+
+
+    <!-- آرایه مربوط به عناوین مقدمه -->
+    <string-array name="moghaddameh_onvan">
+
+        <item>
+پایگاه داده
+        </item>
+
+        <item>
+            سیستم مدیریت پایگاه داده
+        </item>
+
+        <item>
+            SQL
+        </item>
+
+        <item>
+            پایگاه داده رابطه ای
+        </item>
+
+        <item>
+            RDBMS
+
+        </item>
+
+        <item>
+            MySQL
+        </item>
+
+    </string-array>
+
+
+    <!-- آرایه مربوط یه عناوین نصب -->
+    <string-array name="nasb_onvan">
+
+        <!--1-->
+        <item>
+            اوبونتو
+        </item>
+
+        <!--2-->
+        <item>
+            ویندوز
+        </item>
+
+        <!--3-->
+        <item>
+            مک‌اواس
+        </item>
+
+
+    </string-array>
+
+
+
+    <!-- آرایه مربوط یه عناوین راه انداز -->
+    <string-array name="jadval_onvan">
+
+        <!--1-->
+        <item>
+            table
+        </item>
+
+        <!--2-->
+        <item>
+            record
+        </item>
+
+        <!--3-->
+        <item>
+            field
+        </item>
+
+    </string-array>
+
+
+
+
+
+</resources>

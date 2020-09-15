@@ -1,5 +1,6 @@
 package ir.linuxian.sql.activityha;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -43,8 +44,8 @@ public class AmoozeshFehrestActivity extends AppCompatActivity {
 
 
 
-                if(amoozeshListModels.get(pos).getGoone()!=AmoozeshListModel.SARSAFHE);//temp
-               // startActivity(new Intent(AmoozeshFehrestActivity.this,AmoozeshActivity.class).putExtra("shomare",amoozeshListModels.get(pos).getNamaye()));
+                if(amoozeshListModels.get(pos).getGoone()!=AmoozeshListModel.SARSAFHE)
+                    startActivity(new Intent(AmoozeshFehrestActivity.this,AmoozeshActivity.class).putExtra("shomare",amoozeshListModels.get(pos).getNamaye()));
             }
         }));
 

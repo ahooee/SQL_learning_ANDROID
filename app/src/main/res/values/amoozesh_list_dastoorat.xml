@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <array name="amoozesh_dastoorat">
+
+        <item>@array/moghaddame_dastoorat</item>
+        <item>@array/mafahim_dastoorat</item>
+        <item>@array/nasb_dastoorat</item>
+
+
+    </array>
+    
+    
+    <string-array name="moghaddame_dastoorat">
+        
+        
+    </string-array>
+    
+
+
+    <string-array name="nasb_dastoorat">
+
+        <!--1-->
+        <item>
+            sudo apt install mysql-server mysql-workbench δ
+            sudo mysql_secure_installation
+
+        </item>
+
+        <!--2-->
+        <item>
+
+        </item>
+
+        <!--3-->
+        <item>
+
+        </item>
+    </string-array>
+
+
+    <string-array name="mafahim_dastoorat">
+
+    </string-array>
+
+</resources>

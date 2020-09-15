@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragmentha.MatnNamaFragment"
+    android:background="@drawable/mostatil_siah"
+
+    android:layoutDirection="ltr"
+    >
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10sp"
+    android:id="@+id/amoozesh_scroll"
+
+    >
+
+    <LinearLayout
+        android:padding="8sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/linear_matnnama"
+        android:background="@drawable/mostatil_amoozesh_matn"
+        android:orientation="vertical"
+
+
+
+
+        />
+</ScrollView>
+
+
+
+<!--
+    <TableLayout
+
+        android:background="#000000"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:stretchColumns="1"
+        >
+        <TableRow>
+
+            <TextView
+
+                android:background="#0099FF"
+                android:textColor="#FF0000"
+
+                android:text="salam"
+                android:padding="2dp"
+                android:layout_margin="2sp"
+                />
+            <TextView
+                android:background="#0099FF"
+                android:textColor="#FF0000"
+
+                android:text="Salam bar to?"
+                android:padding="3dp"
+                android:layout_margin="2sp"
+
+                />
+
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:background="#0099FF"
+                android:textColor="#FF0000"
+
+                android:text="khoobi?"
+                android:padding="2dp"
+                android:layout_margin="2sp"
+                />
+
+            <TextView
+                android:layout_margin="2sp"
+                android:background="#0099FF"
+                android:textColor="#FF0000"
+
+
+                android:text="khoobam Alhamdulellah!!"
+                android:padding="2dp"
+
+                />
+        </TableRow>
+
+
+
+
+
+
+
+
+
+
+    </TableLayout>
+
+-->
+</FrameLayout>

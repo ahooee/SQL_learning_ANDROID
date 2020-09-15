@@ -86,7 +86,7 @@ public class AmoozeshListAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
             super(itemView);
 
-           // textViewShomare = itemView.findViewById(R.id.txt_satr_amoozesh_shomare);
+            // textViewShomare = itemView.findViewById(R.id.txt_satr_amoozesh_shomare);
 
             textViewOnvan = itemView.findViewById(R.id.txt_satr_amoozesh_onvan);
 
@@ -105,14 +105,14 @@ public class AmoozeshListAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
             int r=0,g=((pos*5)+99),b=255;
 
-            
+
             textViewOnvan.setText(amoozeshListModel.getNaam());
 
 //            textViewShomare.setText(""+pos+1);
 
 
 
-          //  linearLayout.setBackgroundColor(Color.rgb(r,g,b-(pos*5)));
+            //  linearLayout.setBackgroundColor(Color.rgb(r,g,b-(pos*5)));
 
             /*textViewOnvan.setOnClickListener(new View.OnClickListener() {
                 @Override

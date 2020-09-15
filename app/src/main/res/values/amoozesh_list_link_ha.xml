@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <array name="amoozesh_linkha">
+
+        <item>@array/amoozesh_moghaddame_link</item>
+        <item>@array/jadval_onvan</item>
+        <item>@array/amoozesh_nasb_link</item>
+
+
+
+
+    </array>
+
+
+    <string-array name="amoozesh_moghaddame_link">
+
+        <!--1-->
+        <item>
+            https://fa.wikipedia.org/wiki/%D9%BE%D8%A7%DB%8C%DA%AF%D8%A7%D9%87_%D8%AF%D8%A7%D8%AF%D9%87,
+            https://fa.wikipedia.org/wiki/%D8%B1%D8%A7%DB%8C%D8%A7%D9%86%D9%87
+        </item>
+
+        <!--2-->
+        <item>
+            https://fa.wikipedia.org/wiki/%D8%B3%D8%A7%D9%85%D8%A7%D9%86%D9%87_%D9%85%D8%AF%DB%8C%D8%B1%DB%8C%D8%AA_%D9%BE%D8%A7%DB%8C%DA%AF%D8%A7%D9%87_%D8%AF%D8%A7%D8%AF%D9%87%E2%80%8C%D9%87%D8%A7,
+            https://fa.wikipedia.org/wiki/%D9%86%D8%B1%D9%85%E2%80%8C%D8%A7%D9%81%D8%B2%D8%A7%D8%B1,
+            https://fa.wikipedia.org/wiki/%D9%86%D8%B1%D9%85%E2%80%8C%D8%A7%D9%81%D8%B2%D8%A7%D8%B1_%DA%A9%D8%A7%D8%B1%D8%A8%D8%B1%D8%AF%DB%8C
+        </item>
+
+        <!--3-->
+        <item>
+            https://en.wikipedia.org/wiki/SQL,https://fa.wikipedia.org/wiki/%D8%A7%D8%B3%E2%80%8C%DA%A9%DB%8C%D9%88%D8%A7%D9%84,
+            https://fa.wikipedia.org/wiki/%D8%B2%D8%A8%D8%A7%D9%86_%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D9%87%E2%80%8C%D9%86%D9%88%DB%8C%D8%B3%DB%8C_%D8%B3%D8%B7%D8%AD_%D8%A8%D8%A7%D9%84%D8%A7,
+            https://fa.wikipedia.org/wiki/%D8%B2%D8%A8%D8%A7%D9%86_%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D9%87%E2%80%8C%D9%86%D9%88%DB%8C%D8%B3%DB%8C_%D8%B3%D8%B7%D8%AD_%D9%BE%D8%A7%DB%8C%DB%8C%D9%86,
+            https://fa.wikipedia.org/wiki/%D8%B1%DB%8C%D8%A7%D8%B6%DB%8C%D8%A7%D8%AA,
+            https://fa.wikipedia.org/wiki/%D8%AC%D8%A8%D8%B1_%D8%B1%D8%A7%D8%A8%D8%B7%D9%87%E2%80%8C%D8%A7%DB%8C
+        </item>
+
+        <!--4-->
+        <item>
+            https://fa.wikipedia.org/wiki/%D9%BE%D8%A7%DB%8C%DA%AF%D8%A7%D9%87_%D8%AF%D8%A7%D8%AF%D9%87_%D8%B1%D8%A7%D8%A8%D8%B7%D9%87%E2%80%8C%D8%A7%DB%8C,
+            https://en.wikipedia.org/wiki/Relational_database
+        </item>
+
+        <!--5-->
+        <item>
+            https://fa.wikipedia.org/wiki/%D8%B3%D8%A7%D9%85%D8%A7%D9%86%D9%87_%D9%85%D8%AF%DB%8C%D8%B1%DB%8C%D8%AA_%D9%BE%D8%A7%DB%8C%DA%AF%D8%A7%D9%87_%D8%AF%D8%A7%D8%AF%D9%87_%D8%B1%D8%A7%D8%A8%D8%B7%D9%87%E2%80%8C%D8%A7%DB%8C,
+            https://en.wikipedia.org/wiki/Relational_database#RDBMS,
+            https://fa.wikipedia.org/wiki/%D9%85%D8%AF%D9%84_%D8%B1%D8%A7%D8%A8%D8%B7%D9%87%E2%80%8C%D8%A7%DB%8C,
+            https://fa.wikipedia.org/wiki/%D8%A7%D8%AF%DA%AF%D8%A7%D8%B1_%DA%A9%D8%A7%D8%AF
+
+            ,oiyu
+        </item>
+
+        <!--6-->
+        <item>
+            https://fa.wikipedia.org/wiki/%D9%85%D8%A7%DB%8C%E2%80%8C%D8%A7%D8%B3%E2%80%8C%DA%A9%DB%8C%D9%88%D8%A7%D9%84,
+            https://fa.wikipedia.org/wiki/%D9%85%D8%AA%D9%86%E2%80%8C%D8%A8%D8%A7%D8%B2,
+            https://fa.wikipedia.org/wiki/%D8%A7%D8%A8%D8%B1%D8%B4%D8%B1%DA%A9%D8%AA_%D8%A7%D9%88%D8%B1%D8%A7%DA%A9%D9%84,
+            https://fa.wikipedia.org/wiki/%D8%B3%DB%8C%D8%B3%D8%AA%D9%85%E2%80%8C%D8%B9%D8%A7%D9%85%D9%84,
+            https://fa.wikipedia.org/wiki/%D8%AA%D9%88%D8%B2%DB%8C%D8%B9_%D9%84%DB%8C%D9%86%D9%88%DA%A9%D8%B3,
+            https://fa.wikipedia.org/wiki/%D9%85%DA%A9%E2%80%8C%D8%A7%D9%88%D8%A7%D8%B3,
+            https://fa.wikipedia.org/wiki/%D9%85%D8%A7%DB%8C%DA%A9%D8%B1%D9%88%D8%B3%D8%A7%D9%81%D8%AA_%D9%88%DB%8C%D9%86%D8%AF%D9%88%D8%B2,
+            https://fa.wikipedia.org/wiki/%D8%B2%D8%A8%D8%A7%D9%86_%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D9%87%E2%80%8C%D9%86%D9%88%DB%8C%D8%B3%DB%8C,
+            https://fa.wikipedia.org/wiki/%D8%B3%DB%8C_(%D8%B2%D8%A8%D8%A7%D9%86_%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D9%87%E2%80%8C%D9%86%D9%88%DB%8C%D8%B3%DB%8C),
+            https://fa.wikipedia.org/wiki/%D8%B3%DB%8C_%D9%BE%D9%84%D8%A7%D8%B3%E2%80%8C%D9%BE%D9%84%D8%A7%D8%B3,
+            https://fa.wikipedia.org/wiki/%D8%AC%D8%A7%D9%88%D8%A7_(%D8%B2%D8%A8%D8%A7%D9%86_%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D9%87%E2%80%8C%D9%86%D9%88%DB%8C%D8%B3%DB%8C),
+            https://fa.wikipedia.org/wiki/%D9%84%D9%88%D8%A2_(%D8%B2%D8%A8%D8%A7%D9%86_%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D9%87%E2%80%8C%D9%86%D9%88%DB%8C%D8%B3%DB%8C),
+            https://fa.wikipedia.org/wiki/%DA%86%D8%A7%D8%B1%DA%86%D9%88%D8%A8_%D8%AF%D8%A7%D8%AA%E2%80%8C%D9%86%D8%AA,
+            https://fa.wikipedia.org/wiki/%D9%BE%D8%B1%D9%84,
+            https://fa.wikipedia.org/wiki/%D9%BE%DB%8C%E2%80%8C%D8%A7%DA%86%E2%80%8C%D9%BE%DB%8C,
+            https://fa.wikipedia.org/wiki/%D9%BE%D8%A7%DB%8C%D8%AA%D9%88%D9%86_(%D8%B2%D8%A8%D8%A7%D9%86_%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D9%87%E2%80%8C%D9%86%D9%88%DB%8C%D8%B3%DB%8C),
+            https://fa.wikipedia.org/wiki/%D8%B1%D9%88%D8%A8%DB%8C_(%D8%B2%D8%A8%D8%A7%D9%86_%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D9%87%E2%80%8C%D9%86%D9%88%DB%8C%D8%B3%DB%8C),
+            https://fa.wikipedia.org/wiki/%D8%B1%D8%A7%D8%A8%D8%B7_%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D9%87%E2%80%8C%D9%86%D9%88%DB%8C%D8%B3%DB%8C_%DA%A9%D8%A7%D8%B1%D8%A8%D8%B1%D8%AF%DB%8C
+        </item>
+
+    </string-array>
+
+    <string-array name="amoozesh_nasb_link">
+
+
+        <!--1-->
+        <item>
+            https://fa.wikipedia.org/wiki/%D8%A7%D9%88%D8%A8%D9%88%D9%86%D8%AA%D9%88,
+        </item>
+
+
+        <!--2-->
+        <item>
+
+            https://fa.wikipedia.org/wiki/%D9%85%D8%A7%DB%8C%DA%A9%D8%B1%D9%88%D8%B3%D8%A7%D9%81%D8%AA_%D9%88%DB%8C%D9%86%D8%AF%D9%88%D8%B2,
+            https://dev.mysql.com/downloads/mysql/,
+            https://www.google.com/search?q=%D8%AF%D8%A7%D9%86%D9%84%D9%88%D8%AF+mysql&amp;oq=%D8%AF%D8%A7%D9%86%D9%84%D9%88%D8%AF+mysql&amp;aqs=chrome..69i57j0l7.19993j0j7&amp;client=ubuntu&amp;sourceid=chrome&amp;ie=UTF-8
+
+        </item>
+
+
+        <!--3-->
+        <item>
+            https://fa.wikipedia.org/wiki/%D9%85%DA%A9%E2%80%8C%D8%A7%D9%88%D8%A7%D8%B3,
+            https://dev.mysql.com/downloads/mysql/,
+            https://www.google.com/search?client=ubuntu&amp;channel=fs&amp;q=mysql+%D9%85%DA%A9+%D8%AF%D8%A7%D9%86%D9%84%D9%88%D8%AF&amp;ie=utf-8&amp;oe=utf-8,
+            https://fa.wikipedia.org/wiki/%DA%AF%D8%B0%D8%B1%D9%88%D8%A7%DA%98%D9%87,
+            https://fa.wikipedia.org/wiki/%D8%A7%D8%A8%D8%B1%DA%A9%D8%A7%D8%B1%D8%A8%D8%B1
+        </item>
+
+
+    </string-array>
+
+
+    <string-array name="jadval_linkha">
+
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+</resources>

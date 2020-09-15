@@ -1,4 +1,5 @@
 <resources>
+
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
@@ -15,4 +16,14 @@
 
 
     </style>
+
+    <style name="padding_jadval">
+
+        <item name="android:paddingLeft">5sp</item>
+        <item name="android:paddingRight">5sp</item>
+
+
+
+    </style>
+
 </resources>

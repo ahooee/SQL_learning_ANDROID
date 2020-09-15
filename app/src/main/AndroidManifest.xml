@@ -10,9 +10,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".activityha.EntekhabActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
+            android:theme="@style/Theme.AppCompat.NoActionBar"/>
+
         <activity android:name=".activityha.AmoozeshFehrestActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
+            android:theme="@style/Theme.AppCompat.NoActionBar"/>
+
         <activity android:name=".activityha.AghazActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>
@@ -21,6 +23,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".activityha.AmoozeshActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+
     </application>
 
 </manifest>

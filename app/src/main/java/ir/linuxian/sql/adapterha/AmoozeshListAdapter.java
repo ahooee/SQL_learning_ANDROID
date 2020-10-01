@@ -252,4 +252,14 @@ public class AmoozeshListAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
         return amoozeshListSatrha.get(pos).getGoone();
     }
+
+    public void search(List<AmoozeshListModel> amoozeshListSatrha){
+
+        this.amoozeshListSatrha = amoozeshListSatrha;
+
+        notifyDataSetChanged();
+
+
+
+    }
 }

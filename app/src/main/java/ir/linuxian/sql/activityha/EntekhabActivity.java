@@ -1,17 +1,22 @@
 package ir.linuxian.sql.activityha;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.SimpleItemAnimator;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.TypedValue;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import ir.linuxian.sql.R;
 
@@ -24,10 +29,14 @@ public class EntekhabActivity extends AppCompatActivity {
     LinearLayout li_Amoozesh,li_Azmoon,li_Tanzimat,li_Linuxian,li_Source;
     TextView text_Amoozesh,text_Azmoon,text_Tanzimat,text_Linuxian,text_Source;
 
+    MediaPlayer mediaPlayer;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_entekhab);
+
+
 
 
 
@@ -69,7 +78,28 @@ public class EntekhabActivity extends AppCompatActivity {
             }
         });
 
+        li_Linuxian.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
+                startActivity(new Intent(EntekhabActivity.this,AghazActivity.class));
+            }
+        });
+
+
+        li_Azmoon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(EntekhabActivity.this);
+                Toast.makeText(EntekhabActivity.this,sharedPreferences.getBoolean("bootstate",true)+"",Toast.LENGTH_LONG).show();
+
+                SharedPreferences.Editor prefEditor = sharedPreferences.edit();
+                prefEditor.putBoolean("bootstate",false);
+                prefEditor.apply();
+
+            }
+        });
 
 
 
@@ -139,6 +169,10 @@ public class EntekhabActivity extends AppCompatActivity {
         setAndaze(li_Linuxian);
         setAndaze(li_Source);
         setAndaze(li_Tanzimat);
+
+        mediaPlayer = MediaPlayer.create(this,R.raw.startup);
+
+        mediaPlayer.start();
 
 
 
@@ -225,4 +259,38 @@ public class EntekhabActivity extends AppCompatActivity {
 
 
     }
+
+    @Override
+    protected void onStop() {
+
+        if(mediaPlayer != null) {
+
+            if(mediaPlayer.isPlaying())
+                mediaPlayer.stop();
+
+            mediaPlayer.release();
+
+            mediaPlayer = null;
+        }
+
+        super.onStop();
+    }
+
+    @Override
+    protected void onDestroy() {
+
+        if(mediaPlayer != null) {
+
+            if(mediaPlayer.isPlaying())
+                mediaPlayer.stop();
+
+            mediaPlayer.stop();
+            mediaPlayer.release();
+
+        mediaPlayer = null ;
+        }
+
+        super.onDestroy();
+    }
+
 }

@@ -8,8 +8,12 @@
         <item>@array/jadval_onvan</item>
 
         <item>@array/nasb_onvan</item>
-        <item>@array/nasb_onvan</item>
-        <item>@array/moghaddameh_onvan</item>
+        <item>@array/syntax_onvan</item>
+        <item>@array/keywords_onvan</item>
+        <item>@array/type_onvan</item>
+        <item>@array/operator_onvan</item>
+
+
 
 
 
@@ -90,6 +94,57 @@
         </item>
 
     </string-array>
+
+    <string-array name="syntax_onvan">
+
+        <item>
+            Syntax
+        </item>
+
+        <item>
+            SQL syntax
+        </item>
+
+
+    </string-array>
+
+    <string-array name="keywords_onvan">
+
+        <item>
+            KeyWords
+        </item>
+
+    </string-array>
+
+    <string-array name="type_onvan">
+
+        <item>
+            انواع داده
+        </item>
+        <item>اعداد</item>
+
+        <item>زمان</item>
+
+        <item>رشته</item>
+
+
+
+    </string-array>
+
+    <string-array name="operator_onvan">
+
+        <item>
+            عملگرها
+        </item>
+
+        <item>حسابی</item>
+        <item>مقایسه ای</item>
+        <item>منطقی</item>
+        <item>انتساب</item>
+
+
+    </string-array>
+
 
 
 

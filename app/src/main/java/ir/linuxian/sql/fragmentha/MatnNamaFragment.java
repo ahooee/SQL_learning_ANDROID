@@ -15,9 +15,11 @@ import android.widget.LinearLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.sqlite.db.SimpleSQLiteQuery;
 
 import java.util.List;
 import java.util.concurrent.ExecutionException;
@@ -150,6 +152,8 @@ public class MatnNamaFragment extends Fragment {
 
         linkha = getArguments().getString("linkha");
 
+        jadavel = getArguments().getStringArray("jadavel");
+
         linearLayout = namayeAsli.findViewById(R.id.linear_matnnama);
 
 
@@ -162,24 +166,61 @@ public class MatnNamaFragment extends Fragment {
             if(motoon[i].contains("λκ")) {
                 String[] matnM = motoon[i].split("λκ");
                 for (String matn : matnM) {
+
                     TextView textView = new TextView(getActivity());
 
-                    MatnAra matnAra = new MatnAra(matn, linkha, textView);
-
-                    linkha_index = matnAra.anjam(linkha_index);
-
-
-                    textView.setBackground(namayeAsli.getContext().getResources().getDrawable(R.drawable.mostatil_amoozesh_matn));
-
-                    linearLayout.addView(textView);
+                    int indexofSQL=0;
+                    if(matn.contains("ζ")) {
+                        indexofSQL = Character.getNumericValue(matn.charAt(matn.lastIndexOf("ζ") + 1));
+                        matn = matn.replaceAll("ζ\\d", "");
 
 
-                    try {
-                        jadvalSaaz(namayeAsli);
-                    } catch (ExecutionException | InterruptedException e) {
-                        e.printStackTrace();
+                        Toast.makeText(getContext(), "s" + indexofSQL, Toast.LENGTH_LONG).show();
+                        MatnAra matnAra = new MatnAra(matn, linkha, textView);
+
+                        linkha_index = matnAra.anjam(linkha_index);
+
+
+                        textView.setBackground(namayeAsli.getContext().getResources().getDrawable(R.drawable.mostatil_amoozesh_matn));
+
+                        linearLayout.addView(textView);
+
+
+
+
+                        try {
+                            assert jadavel != null;
+                            jadvalSaaz(namayeAsli,jadavel[indexofSQL]);
+                        } catch (ExecutionException | InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                    }else {
+
+
+                        MatnAra matnAra = new MatnAra(matn, linkha, textView);
+
+                        linkha_index = matnAra.anjam(linkha_index);
+
+
+                        textView.setBackground(namayeAsli.getContext().getResources().getDrawable(R.drawable.mostatil_amoozesh_matn));
+
+                        linearLayout.addView(textView);
+
+
+
+
+
+
                     }
-                }
+
+
+
+
+
+                    }
+
+
+
 
             }else{
 
@@ -198,7 +239,7 @@ public class MatnNamaFragment extends Fragment {
 
             }
             if(dastoorat!=null)
-            if(dastoorat.length>0 && !dastoorat[i].isEmpty()){
+            if(dastoorat.length>i && !dastoorat[i].isEmpty()){
 
                 TextView textView1 = new TextView(getActivity());
 
@@ -220,15 +261,6 @@ public class MatnNamaFragment extends Fragment {
 
 
 
-
-
-
-
-
-
-
-
-
         }
 
 
@@ -238,7 +270,7 @@ public class MatnNamaFragment extends Fragment {
 
 
     @SuppressLint("StaticFieldLeak")
-    private void jadvalSaaz(final View view) throws ExecutionException, InterruptedException {
+    private void jadvalSaaz(final View view , final String sqlDastoor) throws ExecutionException, InterruptedException {
 
         LinearLayout linearLayout = view.findViewById(R.id.linear_matnnama);
 
@@ -268,7 +300,7 @@ public class MatnNamaFragment extends Fragment {
 
 
                 @SuppressLint("WrongThread") DAmoozDataBase dAmoozDataBase = DAmoozDataBase.getInstance(view.getContext());
-                return dAmoozDataBase.getDamoozDAO().getDAmoozan();
+                return dAmoozDataBase.getDamoozDAO().getDAmoozha(new SimpleSQLiteQuery(sqlDastoor));
 
             }
         }.execute(new Void[3]).get();

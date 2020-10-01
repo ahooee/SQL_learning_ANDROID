@@ -21,6 +21,10 @@ public interface DAmoozanDao {
     @RawQuery
     DAmooz getDAmooz(SupportSQLiteQuery supportSQLiteQuery);
 
+    @RawQuery
+    List<DAmooz> getDAmoozha(SupportSQLiteQuery supportSQLiteQuery);
+
+
 
 
 }

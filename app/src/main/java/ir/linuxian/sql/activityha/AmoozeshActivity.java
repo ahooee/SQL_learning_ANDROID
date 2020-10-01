@@ -99,14 +99,13 @@ public class AmoozeshActivity extends AppCompatActivity implements MatnNamaFragm
 
         typedArray.recycle();
 
-        String[] sqls = {};
-        if(resId > 4) {
+
             typedArray = resources.obtainTypedArray(R.array.amoozesh_sqls);
 
-            sqls = resources.getStringArray(typedArray.getResourceId(resId , 0));
+            String[]  sqls = resources.getStringArray(typedArray.getResourceId(resId , 0));
 
             typedArray.recycle();
-        }
+
 
 
         viewPager.setAdapter(new MatnNamaSafheAdapter(getSupportFragmentManager(), FragmentStatePagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT,matnha,onvanha,linkha,dastoorat,sqls));

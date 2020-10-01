@@ -2,11 +2,37 @@
 <resources>
 
     <array name="amoozesh_sqls">
+        <item>@array/moghaddameh_sql</item>
+        <item>@array/jadval_sql</item>
 
+        <item>@array/nasb_sql</item>
 
     </array>
 
 
+    <string-array name="moghaddameh_sql">
 
 
+
+    </string-array>
+
+
+    <string-array name="jadval_sql">
+
+
+    </string-array>
+
+    <string-array name="nasb_sql">
+
+        <item>
+            Select * from damooz πθ Select * from damooz
+
+        </item>
+
+        <item>πθ</item>
+
+        <item>            Select * from damooz where Paye > 8
+        </item>
+
+    </string-array>
 </resources>

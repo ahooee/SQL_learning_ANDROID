@@ -3,8 +3,10 @@ package ir.linuxian.sql.activityha;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -24,6 +26,11 @@ public class AmoozeshFehrestActivity extends AppCompatActivity {
 
     AmoozeshListAdapter amoozeshListAdapter;
 
+    SearchView searchView;
+
+    List<AmoozeshListModel> newamoozeshListModels ;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,16 +45,6 @@ public class AmoozeshFehrestActivity extends AppCompatActivity {
         amoozeshListAdapter =new AmoozeshListAdapter(amoozeshListModels);
 
 
-        recyclerView.addOnItemTouchListener(new RecyclerTouchHandler(AmoozeshFehrestActivity.this,new RecyclerTouchHandler.ClickKon() {
-            @Override
-            public void Onclick(View v, int pos) {
-
-
-
-                if(amoozeshListModels.get(pos).getGoone()!=AmoozeshListModel.SARSAFHE)
-                    startActivity(new Intent(AmoozeshFehrestActivity.this,AmoozeshActivity.class).putExtra("shomare",amoozeshListModels.get(pos).getNamaye()));
-            }
-        }));
 
 
         GridLayoutManager gridLayoutManager = new GridLayoutManager(this,2);
@@ -57,14 +54,14 @@ public class AmoozeshFehrestActivity extends AppCompatActivity {
             public int getSpanSize(int position) {
 
 
-                if(position <= 1 || position == 4 ){
+                if(position <= 1 || position == 6 ){
 
                     return 2;
 
-                }else if(position > 1 && position <=3){
+                }else if(position > 1 && position <=5){
 
                     return 1;
-                }else if(position > 4){
+                }else if(position > 6){
                     return 1;
                 }else{
 
@@ -86,6 +83,76 @@ public class AmoozeshFehrestActivity extends AppCompatActivity {
 
         recyclerView.setAdapter(amoozeshListAdapter);
 
+        searchView = findViewById(R.id.search_list);
+
+        searchView.setQueryHint("جستجو");
+
+        //assign the list to the new list
+        newamoozeshListModels = amoozeshListModels;
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+
+                //for search in English pharse
+                newText = newText.toLowerCase();
+
+                newamoozeshListModels = new ArrayList<>();
+
+
+                if(newText.isEmpty()){
+
+                    newamoozeshListModels = amoozeshListModels;
+
+                }else {
+
+
+                    for (AmoozeshListModel amoozeshListModel : amoozeshListModels) {
+
+                        if (amoozeshListModel.getNaam().toLowerCase().contains(newText)) {
+
+                           if(!((amoozeshListModel.getGoone() == AmoozeshListModel.SARSAFHE) )) {
+
+                                newamoozeshListModels.add(amoozeshListModel);
+                            }
+
+
+
+                        }
+
+
+                    }
+
+                }
+
+                amoozeshListAdapter.search(newamoozeshListModels);
+
+
+                //Toast.makeText(AmoozeshFehrestActivity.this,newText,Toast.LENGTH_SHORT).show();
+                return false;
+            }
+        });
+
+
+
+        recyclerView.addOnItemTouchListener(new RecyclerTouchHandler(AmoozeshFehrestActivity.this,new RecyclerTouchHandler.ClickKon() {
+            @Override
+            public void Onclick(View v, int pos) {
+
+
+
+                if(newamoozeshListModels.get(pos).getGoone()!=AmoozeshListModel.SARSAFHE)
+                    startActivity(new Intent(AmoozeshFehrestActivity.this,AmoozeshActivity.class).putExtra("shomare",newamoozeshListModels.get(pos).getNamaye()));
+            }
+        }));
+
+
+
 
 
 
@@ -103,14 +170,14 @@ public class AmoozeshFehrestActivity extends AppCompatActivity {
             int namaye =0;
             int goone = 0;
 
-            if(i==0 || i==4) {
+            if(i==0 || i==6) {
 
                 goone = AmoozeshListModel.SARSAFHE;
                 namaye = 0;
 
 
 
-            }else if((i>0 && i<4)){
+            }else if((i>0 && i<6)){
 
 
                     goone =AmoozeshListModel.MAFAHIM;

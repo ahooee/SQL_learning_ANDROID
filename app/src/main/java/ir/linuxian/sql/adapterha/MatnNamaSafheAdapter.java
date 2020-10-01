@@ -56,12 +56,16 @@ public class MatnNamaSafheAdapter extends FragmentStatePagerAdapter {
         if(dastoorat.length>0)
             dastoorha = (dastoorat[matnha.length-position-1]).split("δ");
 
+
         bundle.putStringArray("dastoorha",dastoorha);
 
-        if(jadavel.length>0)
-            jadavel = (jadavel[matnha.length-position-1].split("πθ"));
 
-        bundle.putStringArray("jadavel",jadavel);
+        String[] jadvalha = {};
+
+        if(jadavel.length>0)
+            jadvalha = (jadavel[matnha.length-position-1].split("πθ"));
+
+        bundle.putStringArray("jadavel",jadvalha);
 
 
         if(position>4){

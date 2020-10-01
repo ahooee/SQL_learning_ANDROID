@@ -1,43 +1,57 @@
 package ir.linuxian.sql.activityha;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.preference.PreferenceManager;
+import androidx.sqlite.db.SimpleSQLiteQuery;
+import androidx.sqlite.db.SupportSQLiteQuery;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.graphics.Color;
+import android.content.SharedPreferences;
 import android.media.MediaPlayer;
-import android.os.Build;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.Gravity;
-import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import java.util.concurrent.ExecutionException;
+
 import ir.linuxian.sql.R;
+import ir.linuxian.sql.komakkar.Neveshtan;
+import ir.linuxian.sql.paygahdade.DAmooz;
+import ir.linuxian.sql.paygahdade.DAmoozDataBase;
 
 public class AghazActivity extends AppCompatActivity {
+
 
     TextView textView0,textView1,textView2;
     MediaPlayer mediaPlayer;
     LinearLayout linearLayoutBottom;
     LinearLayout.LayoutParams layoutParams;
 
-    final String tv0Text = "به نام خداوند بخشنده و بخشایشگر";
+    SharedPreferences sharedPreferences;
 
-    final String tv1Text = "آموزش SQL"
+    SharedPreferences.Editor prefEditor;
+
+    boolean bootState = false;
+
+    final String matn0 = "به نام خداوند بخشنده و بخشایشگر";
+
+    final String matn1 = "آموزش SQL"
             +"\n\n"
             +"بر محور پایگاه داده MYSQL";
-    final String tv2Text = "#التماس_دعا";
+    final String matn2 = "#التماس_دعا";
 
-    final String linuxianText = "linuxian";
-    final int mDelay = 60;
-    final int mDelay1 = 730;
-    int mIndex = 0;
-    int mIndex1 = 0;
-    final String[] colorAraye ={"2372f3","ff0002","f2e71a","49cf44","d848ff","ffffff","0097f6","ababab"};
+    final String ahooeeMatn = "ahooee";
 
-    final Handler mHandler = new Handler();
-    final Handler mHandler1 = new Handler();
+
+    final int takhir = 60;
+    final int takhirAhooee = 800;
+
+
+    TextView[] textViews ;
 
 
 
@@ -46,11 +60,45 @@ public class AghazActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_aghaz);
 
-        //initialize variables
-        init();
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        bootState = sharedPreferences.getBoolean("bootstate",false);
 
-        //Running splash animation
-        splashRUN();
+        if(bootState) {
+
+            //if this is not first run of the app , go to the next activity and finish current activity
+
+            startActivity(new Intent(this, EntekhabActivity.class));
+
+            AghazActivity.this.finish();
+
+
+        }else {
+
+
+            //initialize variables
+            init();
+
+            try {
+                dataBaseINIT();
+            } catch (ExecutionException e) {
+                e.printStackTrace();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+            splashRUN();
+
+
+
+
+
+
+
+
+
+        }
+
+
     }
 
     private void splashRUN() {
@@ -59,76 +107,36 @@ public class AghazActivity extends AppCompatActivity {
         mediaPlayer.start();
 
 
-        final Runnable runnable= new Runnable(){
+        new Neveshtan(matn0,takhir,0).nevisandeh(textView0);
 
+        new Neveshtan(matn1,takhir,takhir* matn1.length()).nevisandeh(textView1);
 
+        new Neveshtan(matn2,takhir,takhir*(matn0.length()+matn1.length())).nevisandeh(textView2);
+
+        new Neveshtan(ahooeeMatn,takhirAhooee,0).khoshnevis(this,linearLayoutBottom,layoutParams);
+
+        new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
 
+                startActivity(new Intent(AghazActivity.this,EntekhabActivity.class));
 
-                if(mIndex<=tv0Text.length()){
-                    textView0.setText(tv0Text.substring(0, mIndex++));
-
-
-                }else if(mIndex>tv0Text.length() && mIndex<=(tv0Text.length()+tv1Text.length())){
-
-                    textView1.setText(tv1Text.substring(0, mIndex++-tv0Text.length()));
-
-                }else if(mIndex>(tv0Text.length()+tv1Text.length())){
-
-                    textView2.setText(tv2Text.substring(0, mIndex++-(tv0Text.length()+tv1Text.length())));
-
-
-                }
-
-
-                if(mIndex <= (tv0Text.length()+tv1Text.length()+tv2Text.length())) {
-                    mHandler.postDelayed(this, mDelay);
-
-                }
+                AghazActivity.this.finish();
 
             }
-        };
-
-        mHandler.postDelayed(runnable,mDelay);
-
-
-        final Runnable runnable1= new Runnable(){
-
-
-            @Override
-            public void run() {
-
-                TextView tv = new TextView(AghazActivity.this);
-                tv.setTextSize(33);
-
-                tv.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
-                tv.setLayoutParams(layoutParams);
-                tv.setTextAppearance(AghazActivity.this,R.style.cursive);
-
-                tv.setTextColor(Color.parseColor("#"+colorAraye[mIndex1]));
-
-                tv.setText(linuxianText.substring(mIndex1, ++mIndex1));
-
-                linearLayoutBottom.addView(tv);
-
-                if(mIndex1 <linuxianText.length()) {
-                    mHandler1.postDelayed(this, mDelay1);
+        },takhirAhooee*ahooeeMatn.length()+800);
 
 
 
-                }else{
 
-                    startActivity(new Intent(AghazActivity.this, EntekhabActivity.class));
 
-                    AghazActivity.this.finish();
-                }
 
-            }
-        };
 
-        mHandler1.postDelayed(runnable1,mDelay1);
+        prefEditor = sharedPreferences.edit();
 
+        prefEditor.putBoolean("bootstate",true);
+
+        prefEditor.apply();
 
 
 
@@ -136,10 +144,15 @@ public class AghazActivity extends AppCompatActivity {
 
     private void init() {
 
+
+
+
+
         textView0 =findViewById(R.id.tv0);
         textView1 =findViewById(R.id.tv1);
         textView2 =findViewById(R.id.tv2);
 
+        textViews = new TextView[]{textView0, textView1, textView2};
 
         linearLayoutBottom = findViewById(R.id.linearlayout_Bottom);
 
@@ -154,5 +167,80 @@ public class AghazActivity extends AppCompatActivity {
 
 
 
+
+
+
+    }
+
+    @SuppressLint("StaticFieldLeak")
+    private void dataBaseINIT() throws ExecutionException, InterruptedException {
+
+
+        DAmooz dAmooz =new AsyncTask<Void, Void, DAmooz>() {
+            @Override
+            protected DAmooz doInBackground(Void... voids) {
+
+                DAmoozDataBase dAmoozDataBase = DAmoozDataBase.getInstance(AghazActivity.this);
+
+
+
+
+                for(int i=0;i<9;i++) {
+
+                    dAmoozDataBase.getDamoozDAO().insetDAmooz(new DAmooz(i,"mo"+i,"ka"+i,i+3,i*13.5f));
+
+
+
+
+                }
+                SupportSQLiteQuery supportSQLiteQuery = new SimpleSQLiteQuery("Select * from damooz");
+                return dAmoozDataBase.getDamoozDAO().getDAmooz(supportSQLiteQuery);
+            }
+        }.execute(new Void[3]).get();
+
+
+        //just fot test
+        //Toast.makeText(this, dAmooz.getFirstName(),Toast.LENGTH_LONG).show();
+
+
+
+
+
+    }
+
+
+    @Override
+    protected void onStop() {
+
+        if(mediaPlayer != null) {
+
+            if(mediaPlayer.isPlaying())
+                mediaPlayer.stop();
+
+            mediaPlayer.stop();
+            mediaPlayer.release();
+            mediaPlayer = null ;
+
+        }
+
+        super.onStop();
+    }
+
+    @Override
+    protected void onDestroy() {
+
+        if(mediaPlayer != null) {
+
+            if(mediaPlayer.isPlaying())
+                mediaPlayer.stop();
+
+            mediaPlayer.stop();
+            mediaPlayer.release();
+
+            mediaPlayer = null ;
+
+        }
+
+        super.onDestroy();
     }
 }

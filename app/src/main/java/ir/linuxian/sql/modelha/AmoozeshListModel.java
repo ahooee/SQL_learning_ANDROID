@@ -6,10 +6,9 @@ public class AmoozeshListModel {
     public static final int MAFAHIM = 1;
     public static final int DASTOORAT = 2;
 
+
     String naam;
-
     int namaye;
-
     int goone;
 
 

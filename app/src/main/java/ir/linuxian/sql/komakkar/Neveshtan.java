@@ -68,15 +68,16 @@ public class Neveshtan {
 
             }
 
-              @Override
-              protected void finalize() throws Throwable {
-                  super.finalize();
-              }
           };
 
           handler.postDelayed(runnable,takhirAvalie);
 
     }
+
+
+
+
+
 
 
 
@@ -98,7 +99,9 @@ public class Neveshtan {
                 tv.setLayoutParams(layoutParams);
                 tv.setTextAppearance(context, R.style.cursive);
 
-                tv.setTextColor(Color.parseColor("#"+RANGHA[tNamaye]));
+
+                //add a inline(?:) check for a possible condition that matn.length() is greater than RANGHA.length
+                tv.setTextColor(Color.parseColor("#"+RANGHA[tNamaye<RANGHA.length?tNamaye:tNamaye%RANGHA.length]));
 
                 tv.setText(matn.substring(tNamaye, ++tNamaye));
 

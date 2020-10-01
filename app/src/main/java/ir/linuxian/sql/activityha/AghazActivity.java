@@ -109,9 +109,9 @@ public class AghazActivity extends AppCompatActivity {
 
         new Neveshtan(matn0,takhir,0).nevisandeh(textView0);
 
-        new Neveshtan(matn1,takhir,takhir* matn1.length()).nevisandeh(textView1);
+        new Neveshtan(matn1,takhir,takhir* matn0.length()+100).nevisandeh(textView1);
 
-        new Neveshtan(matn2,takhir,takhir*(matn0.length()+matn1.length())).nevisandeh(textView2);
+        new Neveshtan(matn2,takhir,takhir*(matn0.length()+matn1.length())+200).nevisandeh(textView2);
 
         new Neveshtan(ahooeeMatn,takhirAhooee,0).khoshnevis(this,linearLayoutBottom,layoutParams);
 

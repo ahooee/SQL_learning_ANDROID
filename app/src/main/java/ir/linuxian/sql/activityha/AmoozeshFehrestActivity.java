@@ -1,8 +1,14 @@
 package ir.linuxian.sql.activityha;
 
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,12 +21,17 @@ import java.util.List;
 
 import ir.linuxian.sql.R;
 import ir.linuxian.sql.adapterha.AmoozeshListAdapter;
+import ir.linuxian.sql.komakkar.AhooeeToast;
 import ir.linuxian.sql.komakkar.RecyclerTouchHandler;
 import ir.linuxian.sql.modelha.AmoozeshListModel;
 
 public class AmoozeshFehrestActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
+
+    LinearLayout linearAmoozesh;
+
+    TextView textView;
 
     List<AmoozeshListModel> amoozeshListModels;
 
@@ -32,113 +43,35 @@ public class AmoozeshFehrestActivity extends AppCompatActivity {
 
 
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fehrest_amoozesh);
 
 
+        init();
+
         listSaaz();
 
-        recyclerView = findViewById(R.id.recycler_amoozesh);
+        gridLayoutSetter(false);
 
-        amoozeshListAdapter =new AmoozeshListAdapter(amoozeshListModels);
-
-
+        jostojoo();
 
 
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(this,2);
-
-        GridLayoutManager.SpanSizeLookup spanSizeLookup = new GridLayoutManager.SpanSizeLookup() {
-            @Override
-            public int getSpanSize(int position) {
-
-
-                if(position <= 1 || position == 6 ){
-
-                    return 2;
-
-                }else if(position > 1 && position <=5){
-
-                    return 1;
-                }else if(position > 6){
-                    return 1;
-                }else{
-
-                    return 2;
-
-                }
-
-
-
-            }
-        };
-
-
-        gridLayoutManager.setSpanSizeLookup(spanSizeLookup);
-        recyclerView.setLayoutManager(gridLayoutManager);
+        recyclerViewOnItemTouch();
 
 
 
 
-        recyclerView.setAdapter(amoozeshListAdapter);
-
-        searchView = findViewById(R.id.search_list);
-
-        searchView.setQueryHint("جستجو");
-
-        //assign the list to the new list
-        newamoozeshListModels = amoozeshListModels;
-
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-
-                //for search in English pharse
-                newText = newText.toLowerCase();
-
-                newamoozeshListModels = new ArrayList<>();
-
-
-                if(newText.isEmpty()){
-
-                    newamoozeshListModels = amoozeshListModels;
-
-                }else {
-
-
-                    for (AmoozeshListModel amoozeshListModel : amoozeshListModels) {
-
-                        if (amoozeshListModel.getNaam().toLowerCase().contains(newText)) {
-
-                           if(!((amoozeshListModel.getGoone() == AmoozeshListModel.SARSAFHE) )) {
-
-                                newamoozeshListModels.add(amoozeshListModel);
-                            }
+    }
 
 
 
-                        }
+    
 
-
-                    }
-
-                }
-
-                amoozeshListAdapter.search(newamoozeshListModels);
-
-
-                //Toast.makeText(AmoozeshFehrestActivity.this,newText,Toast.LENGTH_SHORT).show();
-                return false;
-            }
-        });
-
-
+    private void recyclerViewOnItemTouch() {
 
         recyclerView.addOnItemTouchListener(new RecyclerTouchHandler(AmoozeshFehrestActivity.this,new RecyclerTouchHandler.ClickKon() {
             @Override
@@ -155,13 +88,203 @@ public class AmoozeshFehrestActivity extends AppCompatActivity {
 
 
 
+    }
+
+    private void jostojoo() {
+
+
+        searchView.setQueryHint(getResources().getString(R.string.search));
+
+        //assign the list to the new list
+        newamoozeshListModels = amoozeshListModels;
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+
+                int natayej = 0;
+                for(AmoozeshListModel amoozeshListModel : amoozeshListModels){
+
+                    if(amoozeshListModel.getNaam().toLowerCase().contains(query) &&
+                            !((amoozeshListModel.getGoone() == AmoozeshListModel.SARSAFHE) ))
+                        natayej = natayej +1;
+                }
+
+                String searchToast;
+
+                if(natayej>0){
+
+                    searchToast = natayej+" "+getString(R.string.search_toast);
+                }else {
+
+                    searchToast = getString(R.string.yaft_nashod);
+                }
+
+
+
+                new AhooeeToast(AmoozeshFehrestActivity.this)
+                        .setLayoutAndDurations(R.layout.ahooee_toast_layout,R.id.ahooee_toast_tv,searchToast,true,400,Toast.LENGTH_SHORT);
+
+
+
+
+
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+
+                //for search in English pharse
+                newText = newText.toLowerCase();
+
+                newamoozeshListModels = new ArrayList<>();
+
+
+                if(newText.isEmpty()){
+
+                    linearAmoozesh.removeAllViews();
+                    linearAmoozesh.addView(recyclerView);
+                    linearAmoozesh.setBackgroundColor(Color.parseColor("#000000"));
+
+                    newamoozeshListModels = amoozeshListModels;
+
+                    gridLayoutSetter(false);
+
+                }else {
+
+                    gridLayoutSetter(true);
+
+                    int yabande = 0;
+
+                    for (AmoozeshListModel amoozeshListModel : amoozeshListModels) {
+
+                        if (amoozeshListModel.getNaam().toLowerCase().contains(newText)) {
+
+                            linearAmoozesh.removeAllViews();
+                            linearAmoozesh.addView(recyclerView);
+                            linearAmoozesh.setBackgroundColor(Color.parseColor("#000000"));
+
+                            yabande = yabande + 1;
+
+                            if(!((amoozeshListModel.getGoone() == AmoozeshListModel.SARSAFHE) )) {
+
+                                newamoozeshListModels.add(amoozeshListModel);
+                            }
+
+
+
+                        }
+
+
+                    }
+
+                    if(yabande == 0){
+
+                        linearAmoozesh.removeAllViews();
+
+                        linearAmoozesh
+                                .setBackground(AmoozeshFehrestActivity.this.getResources().getDrawable(R.drawable.mostatil_soorati));
+
+                        textView = new TextView(AmoozeshFehrestActivity.this);
+                        textView.setText(R.string.yaft_nashod);
+                        textView.setTextAppearance(AmoozeshFehrestActivity.this,R.style.yabande);
+                        textView.setTextColor(Color.WHITE);
+                        linearAmoozesh.addView(textView);
+
+                    }
+
+
+
+
+                }
+
+                amoozeshListAdapter.search(newamoozeshListModels);
+
+
+
+
+                //Toast.makeText(AmoozeshFehrestActivity.this,newText,Toast.LENGTH_SHORT).show();
+                return false;
+            }
+        });
+
+
+
+    }
+
+    private void gridLayoutSetter(final boolean ifinSearch) {
+
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(this,2);
+
+        GridLayoutManager.SpanSizeLookup spanSizeLookup = new GridLayoutManager.SpanSizeLookup() {
+            @Override
+            public int getSpanSize(int position) {
+
+                if(ifinSearch){
+
+                    return 1;
+
+                }else {
+
+                if(position <= 1 || position == 6 ){
+
+                    return 2;
+
+                }else{
+
+                    return 1;
+
+                }
+
+
+                }
+
+
+            }
+        };
+
+
+        gridLayoutManager.setSpanSizeLookup(spanSizeLookup);
+        recyclerView.setLayoutManager(gridLayoutManager);
+
+
+
+
+
+    }
+
+
+    private void init() {
+
+        amoozeshListModels =new ArrayList<>();
+
+        linearAmoozesh = findViewById(R.id.linear_amoozesh);
+
+        recyclerView = new RecyclerView(this);
+
+        searchView = findViewById(R.id.search_list);
+
+
+
+        RecyclerView.LayoutParams layoutParams =
+                new RecyclerView.LayoutParams(RecyclerView.LayoutParams.MATCH_PARENT,RecyclerView.LayoutParams.MATCH_PARENT);
+
+
+        recyclerView.setLayoutParams(layoutParams);
+
+
+        amoozeshListAdapter =new AmoozeshListAdapter(amoozeshListModels);
+
+        recyclerView.setAdapter(amoozeshListAdapter);
+
+        linearAmoozesh.addView(recyclerView);
 
 
     }
 
     private void listSaaz() {
 
-        amoozeshListModels =new ArrayList<>();
 
         int i = 0;
 

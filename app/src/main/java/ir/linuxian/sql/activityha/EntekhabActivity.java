@@ -19,6 +19,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import ir.linuxian.sql.R;
+import ir.linuxian.sql.komakkar.AhooeeToast;
 
 public class EntekhabActivity extends AppCompatActivity {
 
@@ -91,12 +92,10 @@ public class EntekhabActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(EntekhabActivity.this);
-                Toast.makeText(EntekhabActivity.this,sharedPreferences.getBoolean("bootstate",true)+"",Toast.LENGTH_LONG).show();
+                new AhooeeToast(EntekhabActivity.this).
+                        setLayoutAndDurations(R.layout.toast_layout,R.id.toast_tv,getString(R.string.be_zoodi),true,800,Toast.LENGTH_LONG);
 
-                SharedPreferences.Editor prefEditor = sharedPreferences.edit();
-                prefEditor.putBoolean("bootstate",false);
-                prefEditor.apply();
+
 
             }
         });
